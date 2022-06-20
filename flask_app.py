@@ -1,6 +1,6 @@
 
 # A very simple Flask Hello World app for you to get started with...
-
+import random
 from flask import Flask
 
 app = Flask(__name__)
@@ -38,12 +38,17 @@ animals = [
     "Tiger"
 ]
 
+
 @app.route('/')
-def hello_world():
+def random_pet():
+    name1 = random.choice(names1)
+    name2 = random.choice(names2)
+    animal = random.choice(animals)
+
     return {
-        "image": "images/border-collie.jpeg",
-        "imageAlt": "A picture of a Border Collie",
-        "info": "Christian Gérard, the Border Coluilie"
+        "image": f"images/{animal.lower().replace(' ','-')}.jpeg",
+        "imageAlt": f"A picture of a {animal}",
+        "info": f"{name1} {name2} the {animal}"
     }
 
 
