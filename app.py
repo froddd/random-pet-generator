@@ -72,3 +72,18 @@ def one():
 @app.route('/two')
 def two():
     return render_template('two.html')
+
+
+@app.route('/three')
+def three():
+    name1 = random.choice(names1)
+    name2 = random.choice(names2)
+    animal = random.choice(animals)
+
+    data = {
+        "image": f"static/images/{animal.lower().replace(' ','-')}.jpeg",
+        "imageAlt": f"A picture of a {animal}",
+        "info": f"{name1} {name2} the {animal}"
+    }
+
+    return render_template('three.html', image=data['image'], imageAlt=data['imageAlt'], info=data['info'])
