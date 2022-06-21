@@ -46,7 +46,7 @@ def random_pet():
     animal = random.choice(animals)
 
     data = {
-        "image": f"images/{animal.lower().replace(' ','-')}.jpeg",
+        "image": f"static/images/{animal.lower().replace(' ','-')}.jpeg",
         "imageAlt": f"A picture of a {animal}",
         "info": f"{name1} {name2} the {animal}"
     }
@@ -67,3 +67,8 @@ def test():
 @app.route('/one')
 def one():
     return render_template('one.html')
+
+
+@app.route('/two')
+def two():
+    return render_template('two.html')
