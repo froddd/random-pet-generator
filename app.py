@@ -44,8 +44,7 @@ def root():
     return 'Hello!'
 
 
-@app.route('/api')
-def api():
+def get_data():
     name1 = random.choice(names1)
     name2 = random.choice(names2)
     animal = random.choice(animals)
@@ -55,6 +54,14 @@ def api():
         "imageAlt": f"A picture of a {animal}",
         "info": f"{name1} {name2} the {animal}"
     }
+
+    return data
+
+
+@app.route('/api')
+def api():
+    data = get_data()
+
     response = app.response_class(
         response=json.dumps(data),
         status=200,
@@ -76,14 +83,6 @@ def two():
 
 @app.route('/three')
 def three():
-    name1 = random.choice(names1)
-    name2 = random.choice(names2)
-    animal = random.choice(animals)
-
-    data = {
-        "image": f"static/images/{animal.lower().replace(' ','-')}.jpeg",
-        "imageAlt": f"A picture of a {animal}",
-        "info": f"{name1} {name2} the {animal}"
-    }
+    data = get_data()
 
     return render_template('three.html', image=data['image'], imageAlt=data['imageAlt'], info=data['info'])
