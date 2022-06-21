@@ -40,7 +40,7 @@ animals = [
 
 
 @app.route('/api')
-def random_pet():
+def api():
     name1 = random.choice(names1)
     name2 = random.choice(names2)
     animal = random.choice(animals)
@@ -57,11 +57,6 @@ def random_pet():
     )
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
-
-
-@app.route('/test')
-def test():
-    return 'Hello!'
 
 
 @app.route('/one')
