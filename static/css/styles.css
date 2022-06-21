@@ -1,0 +1,23 @@
+body {
+    text-align: center;
+    font-family: cursive;
+    color: blue;
+}
+.button {
+    font-family: cursive;
+    font-size: 200%;
+    padding: 10px 50px;
+    border: 4mm ridge rgb(96 125 139 / 69%);
+    background: #9e9e9e73;
+    display: inline-block;
+    text-decoration: none;
+    color: blue;
+}
+figcaption{
+    font-size: 200%;
+
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
