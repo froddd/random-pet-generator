@@ -1,0 +1,19 @@
+<nav>
+    <ul>
+        <li>
+            <a href="/one" class="{% if request.path == '/one' %}active{% endif %}">
+                version one
+            </a>
+        </li>
+        <li>
+            <a href="/two" class="{% if request.path == '/two' %}active{% endif %}">
+                version two
+            </a>
+        </li>
+        <li>
+            <a href="/three" class="{% if request.path == '/three' %}active{% endif %}">
+                version three
+            </a>
+        </li>
+    </ul>
+</nav>

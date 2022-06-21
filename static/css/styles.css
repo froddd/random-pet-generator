@@ -21,3 +21,18 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+nav li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 1em;
+}
+
+nav ul {
+    padding: 0;
+}
+
+nav a.active {
+    color: green;
+    text-decoration: none;
+}

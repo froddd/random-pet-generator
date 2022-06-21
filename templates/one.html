@@ -53,8 +53,8 @@
 
             const image = document.getElementById("pet-image")
 
-            image.src = "static/images/" + animal.toLowerCase().replace(" ","-") + ".jpeg"
-            image.alt="A picture of a " + animal
+            image.src = "static/images/" + animal.toLowerCase().replace(" ", "-") + ".jpeg"
+            image.alt = "A picture of a " + animal
             document.getElementById("pet-info").textContent = name1 + " " + name2 + ", the " + animal
 
         }
@@ -63,22 +63,23 @@
 <body>
 <h1>Random Pet Generator</h1>
 
+{% include 'nav.html' %}
+
 <figure>
-    <img id="pet-image" >
+    <img id="pet-image">
 
     <figcaption id="pet-info">
 
     </figcaption>
     <script>
         setPet()
-
-
     </script>
 </figure>
 
 <button class="button" onclick="setPet()">
     Another!
 </button>
+
 </body>
 
 </html>
