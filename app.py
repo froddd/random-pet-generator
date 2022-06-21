@@ -39,6 +39,11 @@ animals = [
 ]
 
 
+@app.route('/')
+def root():
+    return 'Hello!'
+
+
 @app.route('/api')
 def api():
     name1 = random.choice(names1)
