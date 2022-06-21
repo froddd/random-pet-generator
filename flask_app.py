@@ -1,7 +1,7 @@
 
 # A very simple Flask Hello World app for you to get started with...
 import random
-from flask import Flask
+from flask import Flask, json
 
 app = Flask(__name__)
 names1 = [
@@ -45,10 +45,17 @@ def random_pet():
     name2 = random.choice(names2)
     animal = random.choice(animals)
 
-    return {
+    data = {
         "image": f"images/{animal.lower().replace(' ','-')}.jpeg",
         "imageAlt": f"A picture of a {animal}",
         "info": f"{name1} {name2} the {animal}"
     }
+    response = app.response_class(
+        response=json.dumps(data),
+        status=200,
+        mimetype='application/json'
+    )
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
