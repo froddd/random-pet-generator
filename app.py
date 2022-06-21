@@ -41,7 +41,7 @@ animals = [
 
 @app.route('/')
 def root():
-    return 'Hello!'
+    return render_template('index.html')
 
 
 def get_data():
