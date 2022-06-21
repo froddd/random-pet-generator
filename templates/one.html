@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Random Pet Generator </title>
+    <style>
+        body {
+            text-align: center;
+            font-family: cursive;
+        }
+        button {
+            font-family: cursive;
+            font-size: 200%;
+            padding: 10px 50px;
+            border: 4mm ridge rgb(96 125 139 / 69%);
+            background: #9e9e9e73;
+        }
+        figcaption{
+            font-size: 200%;
+
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <script>
+        const names1 = [
+            "Maxime",
+            "Vincent",
+            "Lincka",
+            "Marie-Annick",
+            "Eléonore",
+            "Christian",
+            "Frédéric",
+            "Julien",
+            "Carole",
+            "Sylvia"
+        ]
+        const names2 = [
+            "Henri",
+            "Joseph",
+            "Anne",
+            "Léone",
+            "Yvette",
+            "Gérard"
+
+        ]
+        const animals = [
+            "Baby Goat",
+            "Border Collie",
+            "Boxer",
+            "Golden Retriever",
+            "Lion",
+            "Maine Coon",
+            "Savana",
+            "Snake",
+            "Sphynx",
+            "Tiger"
+        ]
+
+        function chooseRandom(list) {
+            return list[Math.floor(Math.random() * list.length)]
+        }
+
+        function setPet() {
+            const animal = chooseRandom(animals)
+            const name1 = chooseRandom(names1)
+            const name2 = chooseRandom(names2)
+
+            const image = document.getElementById("pet-image")
+
+            image.src = "static/images/" + animal.toLowerCase().replace(" ","-") + ".jpeg"
+            image.alt="A picture of a " + animal
+            document.getElementById("pet-info").textContent = name1 + " " + name2 + ", the " + animal
+
+        }
+    </script>
+</head>
+<body>
+<h1>Random Pet Generator</h1>
+
+<figure>
+    <img id="pet-image" >
+
+    <figcaption id="pet-info">
+
+    </figcaption>
+    <script>
+        setPet()
+
+
+    </script>
+</figure>
+
+<button onclick="setPet()">
+    Another!
+</button>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 
 # A very simple Flask Hello World app for you to get started with...
 import random
-from flask import Flask, json
+from flask import Flask, json, render_template
 
 app = Flask(__name__)
 names1 = [
@@ -39,7 +39,7 @@ animals = [
 ]
 
 
-@app.route('/')
+@app.route('/api')
 def random_pet():
     name1 = random.choice(names1)
     name2 = random.choice(names2)
@@ -59,3 +59,11 @@ def random_pet():
     return response
 
 
+@app.route('/test')
+def test():
+    return 'Hello!'
+
+
+@app.route('/one')
+def one():
+    return render_template('one.html')
